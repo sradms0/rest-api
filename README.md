@@ -53,8 +53,8 @@ $ npm start
     * Create the user routes
 
         * Set up the following routes (listed in the format HTTP VERB Route HTTP Status Code):
-            - [ ] <code>GET /api/users 200</code> - Returns the currently authenticated user
-            - [ ] <code>POST /api/users 201</code> - Creates a user, sets the Location header to "/", and returns no content
+            - [X] <code>GET /api/users 200</code> - Returns the currently authenticated user
+            - [X] <code>POST /api/users 201</code> - Creates a user, sets the Location header to "/", and returns no content
 
     * Create the course routes
 
@@ -87,10 +87,10 @@ $ npm start
 
     * Set up permissions to require users to be signed in
         * Postman will set an Authorization header with each request when a user is signed in.
-        - [ ] Add a middleware function that attempts to get the user credentials from Authorization header set on the request.
-        - [ ] You can use the basic-auth npm package to parse the `Authorization' header into the user's credentials.
-        - [ ] Use the authenticate static method you built on the user schema to check the credentials against the database
-        - [ ] If the authenticate method returns the user, then set the user document on the request so that each following middleware function has access to it.
+        - [X] Add a middleware function that attempts to get the user credentials from Authorization header set on the request.
+        - [X] You can use the basic-auth npm package to parse the `Authorization' header into the user's credentials.
+        - [X] Use the authenticate static method you built on the user schema to check the credentials against the database
+        - [X] If the authenticate method returns the user, then set the user document on the request so that each following middleware function has access to it.
         - [ ] If the authenticate method returns an error, then pass it to the next function
         * Use this middleware in the following routes:
             - [ ] ```POST /api/courses```

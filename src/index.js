@@ -5,6 +5,7 @@ const express       = require('express');
 const jsonParser    = require('body-parser').json;
 const morgan        = require('morgan');
 const mongoose      = require('mongoose');
+const User          = require('./models/user');
 
 const app = express();
 
@@ -14,7 +15,6 @@ mongoose.connect('mongodb://localhost:27017/course-api', { useNewUrlParser: true
     () => console.log('mongodb connection established'),
     err => console.log(err.message)
 );
-
 const db = mongoose.connection;
 // mongo error
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -28,6 +28,8 @@ app.use(morgan('dev'));
 app.use(jsonParser());
 
 // TODO add additional routes here
+const userRoutes = require('./routes/userRoutes');
+userRoutes(app);
 
 // send a friendly greeting for the root route
 app.get('/', (req, res) => {
