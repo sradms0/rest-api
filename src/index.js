@@ -1,8 +1,10 @@
 'use strict';
 
 // load modules
-const express = require('express');
-const morgan = require('morgan');
+const express       = require('express');
+const jsonParser    = require('body-parser').json;
+const morgan        = require('morgan');
+const mongoose      = require('mongoose');
 
 const app = express();
 
@@ -22,6 +24,8 @@ app.set('port', process.env.PORT || 5000);
 
 // morgan gives us http request logging
 app.use(morgan('dev'));
+// use jsonParser for posts
+app.use(jsonParser());
 
 // TODO add additional routes here
 
