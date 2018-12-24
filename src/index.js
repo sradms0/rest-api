@@ -6,6 +6,17 @@ const morgan = require('morgan');
 
 const app = express();
 
+// establish database connection
+mongoose.connect('mongodb://localhost:27017/course-api', { useNewUrlParser: true })
+.then(
+    () => console.log('mongodb connection established'),
+    err => console.log(err.message)
+);
+
+const db = mongoose.connection;
+// mongo error
+db.on('error', console.error.bind(console, 'connection error:'));
+
 // set our port
 app.set('port', process.env.PORT || 5000);
 

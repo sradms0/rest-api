@@ -15,10 +15,10 @@ $ npm start
 
 * attempt at meeting expectations
     * Set up a database connection.
-        - [ ] Use npm to install Mongoose.
-        - [ ] Using Mongoose, create a connection to your MongoDB database.
-        - [ ] Write a message to the console if there's an error connecting to the database.
-        - [ ] Write a message to the console once the connection has been successfully opened.
+        - [X] Use npm to install Mongoose.
+        - [X] Using Mongoose, create a connection to your MongoDB database.
+        - [X] Write a message to the console if there's an error connecting to the database.
+        - [X] Write a message to the console once the connection has been successfully opened.
 
     * Create your Mongoose schema and models. Your database schema should match the following requirements:
 
