@@ -40,7 +40,7 @@ $ npm start
                 <li>steps (Array of objects that include stepNumber (Number), title (String, required) and description (String, required) properties)</li>
                 <li>reviews (Array of ObjectId values, _id values from the reviews collection)</li>
             </ul>
-        - [ ] Review
+        - [X] Review
             <ul>
             <li>_id (ObjectId, auto-generated)</li>
             <li>user (_id from the users collection)</li>
