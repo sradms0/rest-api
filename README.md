@@ -22,7 +22,7 @@ $ npm start
 
     * Create your Mongoose schema and models. Your database schema should match the following requirements:
 
-        - [ ] User
+        - [X] User
             <ul>
                 <li>_id (ObjectId, auto-generated)</li>
                 <li>fullName (String, required)</li>
@@ -74,16 +74,16 @@ $ npm start
     * Update the User model to store the user's password as a hashed value.
 
         * For security reasons, we don't want to store the password property in the database as clear text.
-        - [ ] Create a pre save hook on the user schema that uses the bcrypt npm package to hash the user's password.
+        - [X] Create a pre save hook on the user schema that uses the bcrypt npm package to hash the user's password.
         See https://github.com/ncb000gt/node.bcrypt.js/ for more information.
 
     * Create an authentication method on the user model to return the user document based on their credentials
 
-        - [ ] Create a static method on the user schema that takes an email, password, and callback
-        - [ ] The method should attempt to get the user from the database that matches the email address given.
-        - [ ] If a user was found for the provided email address, then check that user's password against the password given using bcrypt.
-        - [ ] If they match, then return the user document that matched the email address
-        - [ ] If they don't match or a user with the email given isn’t found, then pass an error object to the callback
+        - [X] Create a static method on the user schema that takes an email, password, and callback
+        - [X] The method should attempt to get the user from the database that matches the email address given.
+        - [X] If a user was found for the provided email address, then check that user's password against the password given using bcrypt.
+        - [X] If they match, then return the user document that matched the email address
+        - [X] If they don't match or a user with the email given isn’t found, then pass an error object to the callback
 
     * Set up permissions to require users to be signed in
         * Postman will set an Authorization header with each request when a user is signed in.
