@@ -29,7 +29,7 @@ $ npm start
                 <li>emailAddress (String, required, must be unique and in correct format)</li>
                 <li>password (String, required)</li>
             </ul>
-        - [ ] Course
+        - [X] Course
             <ul>
                 <li>_id (ObjectId, auto-generated)</li>
                 <li>user (_id from the users collection)</li>
