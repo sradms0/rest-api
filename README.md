@@ -91,7 +91,7 @@ $ npm start
         - [X] You can use the basic-auth npm package to parse the `Authorization' header into the user's credentials.
         - [X] Use the authenticate static method you built on the user schema to check the credentials against the database
         - [X] If the authenticate method returns the user, then set the user document on the request so that each following middleware function has access to it.
-        - [ ] If the authenticate method returns an error, then pass it to the next function
+        - [X] If the authenticate method returns an error, then pass it to the next function
         * Use this middleware in the following routes:
             - [ ] ```POST /api/courses```
             - [ ] ```PUT /api/courses/:courseId```
