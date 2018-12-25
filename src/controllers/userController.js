@@ -16,7 +16,7 @@ exports.authenticate = (req, res, next) => {
                         err.status = 401;
                         return next(err);
                     }
-                    resolve(user._id);
+                    resolve(user);
                 });
             } else {
                 const err = new Error('Email and password are required');
@@ -31,14 +31,7 @@ exports.authenticate = (req, res, next) => {
 
 exports.getUser = (req, res, next) => {
     this.authenticate(req, res, next)
-    .then(userId => {
-        User.findById(userId)
-        .exec((error, user) => {
-            if (error) return next(error);
-            return res.json(user);
-        });
-    });
-//}
+    .then(user => res.json(user));
 };
 exports.createUser = (req, res, next) => {
     if (req.body.emailAddress       &&
