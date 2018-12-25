@@ -5,22 +5,40 @@ const auth      = require('basic-auth');
 
 const User = mongoose.model('User');
 
-exports.getUser = (req, res, next) => {
-    const credentials = auth(req);
-    if (credentials && credentials.name && credentials.pass) {
-        User.authenticate(credentials.name, credentials.pass, (error, user) => {
-            if (error || !user) {
-                const err = new Error('Wrong email or password.');
+exports.authenticate = (req, res, next) => {
+    return new Promise((resolve, reject) => {
+        try {
+            const credentials = auth(req);
+            if (credentials && credentials.name && credentials.pass) {
+                User.authenticate(credentials.name, credentials.pass, (error, user) => {
+                    if (error || !user) {
+                        const err = new Error('Wrong email or password.');
+                        err.status = 401;
+                        return next(err);
+                    }
+                    resolve(user._id);
+                });
+            } else {
+                const err = new Error('Email and password are required');
                 err.status = 401;
                 return next(err);
             }
-            return res.json(user)
+        } catch(err) {
+            return next(err);
+        }
+    });
+}
+
+exports.getUser = (req, res, next) => {
+    this.authenticate(req, res, next)
+    .then(userId => {
+        User.findById(userId)
+        .exec((error, user) => {
+            if (error) return next(error);
+            return res.json(user);
         });
-    } else {
-        const err = new Error('Email and password are required');
-        err.status = 401;
-        return next(err);
-    }
+    });
+//}
 };
 exports.createUser = (req, res, next) => {
     if (req.body.emailAddress       &&
