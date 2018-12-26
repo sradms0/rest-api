@@ -8,4 +8,5 @@ module.exports = app => {
 
     app.route('/api/courses/:id')
         .get(controller.getCourse)     // GET  course
+        .put(controller.updateCourse); // PUT  course
 };
