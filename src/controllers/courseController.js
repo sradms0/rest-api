@@ -7,6 +7,13 @@ const User   = mongoose.model('User');
 const Course = mongoose.model('Course');
 const Review = mongoose.model('Review');
 
+const modelErrorCheck = (error, next) => {
+    if (error) {
+        error.status = 400;
+        return next(error);
+    }
+};
+
 exports.getCourses = (req, res, next) => {
     authenticate(req, res, next)
     .then(user => {
@@ -72,24 +79,14 @@ exports.updateCourse = (req, res, next) => {
         // find document by id and update from fields
         Course.findByIdAndUpdate(req.params.courseId, {$set: req.body})
         .exec((error, course) => {
-            if (error) {
-                const err = new Error(error.message);
-                err.status = 400;
-                return next(err);
-            }
+            modelErrorCheck(error, next);
+
             res.status(204);
             res.end();
         });
     });
 };
 exports.createReview = (req, res, next) => {
-    const check = (error, next) => {
-        if (error) {
-            const err = new Error(error.message);
-            err.status = 400;
-            return next(err);
-        }
-    };
     authenticate(req, res, next)
     .then(user => {
         if (user._id.toString() === req.body.user) {
@@ -100,16 +97,16 @@ exports.createReview = (req, res, next) => {
         // find course to review
         Course.findById(req.params.courseId)
         .exec((error, course) => {
-            check(error, next);
+            modelErrorCheck(error, next);
 
             // create the review
             Review.create(req.body, (error, review) => {
-                check(error, next);
+                modelErrorCheck(error, next);
 
                 // add it, and save
                 course.reviews.push(review);
                 course.save(error => {
-                    check(error, next);
+                    modelErrorCheck(error, next);
                     res.setHeader('Location', `/api/courses/${req.params.courseId}`);
                     res.status(201);
                     res.end();

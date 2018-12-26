@@ -55,9 +55,8 @@ exports.createUser = (req, res, next) => {
         // use schema's `create` method to insert document into Mongo
         User.create(userData, (error, user) => { 
             if (error) {
-                const err = new Error(error.message);
-                err.status = 400;
-                return next(err);
+                error.status = 400;
+                return next(error);
             }
             res.status(201);
             res.setHeader('Location','/');
