@@ -25,8 +25,11 @@ exports.getCourse = (req, res, next) => {
     .populate('user')
     .populate('reviews')
     .exec((error, course) => {
-        // TODO add custom err message soon
-        if (error) return next(error);
+        if (error) {
+            const err = new Error(`Unable to find course by id: ${req.params.courseId}`);
+            err.status = 404;
+            return next(err);
+        }
         return res.json(course);
     });
 };
