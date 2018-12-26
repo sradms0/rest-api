@@ -59,11 +59,11 @@ $ npm start
     * Create the course routes
 
         * Set up the following routes (listed in the format HTTP VERB Route HTTP Status Code):
-            - [ ] <code>GET /api/courses 200</code> - Returns the Course "_id" and "title" properties
-            - [ ] <code>GET /api/course/:courseId 200</code> - Returns all Course properties and related documents for the provided course ID
-            - [ ] When returning a single course for the <code>GET /api/courses/:courseId</code> route, use Mongoose population to load the related user and reviews documents.
-            - [ ] <code>POST /api/courses 201</code> - Creates a course, sets the Location header, and returns no content
-            - [ ] <code>PUT /api/courses/:courseId 204</code> - Updates a course and returns no content
+            - [X] <code>GET /api/courses 200</code> - Returns the Course "_id" and "title" properties
+            - [X] <code>GET /api/course/:courseId 200</code> - Returns all Course properties and related documents for the provided course ID
+            - [X] When returning a single course for the <code>GET /api/courses/:courseId</code> route, use Mongoose population to load the related user and reviews documents.
+            - [X] <code>POST /api/courses 201</code> - Creates a course, sets the Location header, and returns no content
+            - [X] <code>PUT /api/courses/:courseId 204</code> - Updates a course and returns no content
             - [ ] <code>POST /api/courses/:courseId/reviews 201</code> - Creates a review for the specified course ID, sets the Location header to the related course, and returns no content
 
     * Update any <code>POST</code> and <code>PUT</code> routes to return Mongoose validation errors.
@@ -93,9 +93,9 @@ $ npm start
         - [X] If the authenticate method returns the user, then set the user document on the request so that each following middleware function has access to it.
         - [X] If the authenticate method returns an error, then pass it to the next function
         * Use this middleware in the following routes:
-            - [ ] ```POST /api/courses```
-            - [ ] ```PUT /api/courses/:courseId```
-            - [ ] ```GET /api/users```
+            - [X] ```POST /api/courses```
+            - [X] ```PUT /api/courses/:courseId```
+            - [X] ```GET /api/users```
             - [ ] ```POST /api/courses/:courseId/reviews```
 
 * attempt at exceeding expectations
