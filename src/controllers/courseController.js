@@ -19,3 +19,13 @@ exports.getCourses = (req, res, next) => {
         });
     });
 };
+exports.getCourse = (req, res, next) => {
+    Course.findById(req.params.id)
+    .populate('user')
+    .populate('reviews')
+    .exec((error, course) => {
+        // TODO add custom err message soon
+        if (error) return next(error);
+        return res.json(course);
+    });
+};
