@@ -28,16 +28,19 @@ exports.getCourses = (req, res, next) => {
     });
 };
 exports.getCourse = (req, res, next) => {
-    Course.findById(req.params.courseId)
-    .populate('user')
-    .populate('reviews')
-    .exec((error, course) => {
-        if (error) {
-            const err = new Error(`Unable to find course by id: ${req.params.courseId}`);
-            err.status = 404;
-            return next(err);
-        }
-        return res.json(course);
+    authenticate(req, res, next)
+    .then(user => {
+        Course.findById(req.params.courseId)
+        .populate('user')
+        .populate('reviews')
+        .exec((error, course) => {
+            if (error) {
+                const err = new Error(`Unable to find course by id: ${req.params.courseId}`);
+                err.status = 404;
+                return next(err);
+            }
+            return res.json(course);
+        });
     });
 };
 exports.createCourse = (req, res, next) => {
