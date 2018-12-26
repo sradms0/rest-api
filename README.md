@@ -103,8 +103,8 @@ $ npm start
         - [X] Validation added to prevent a user from reviewing their own course
     * User routes
         * Tests have been written for the following user stories:
-            - [ ] When I make a request to the <code>GET </code>route with the correct credentials, the corresponding user document is returned
-            - [ ] When I make a request to the <code>GET /api/courses/:courseId</code> route with the invalid credentials, a 401 status error is returned
+            - [X] When I make a request to the <code>GET </code>route with the correct credentials, the corresponding user document is returned
+            - [X] When I make a request to the <code>GET /api/courses/:courseId</code> route with the invalid credentials, a 401 status error is returned
     Course routes
         - [ ] When returning a single course for the <code>GET /api/courses/:courseId</code> route, use Mongoose deep population to return only the fullName of the related user on the course model and each review returned with the course model. This will hide other user’s private details, like passwords and emails, from other users.
         * Example user object returned: <code>{ "_id": "wiubfh3eiu23rh89hcwib", "fullName": Sam Smith" } </code>
