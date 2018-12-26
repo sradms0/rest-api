@@ -3,6 +3,10 @@
 const mongoose = require('mongoose');
 
 const CourseSchema = new mongoose.Schema({
+    _id: {
+        type: mongoose.Schema.ObjectId,
+        auto: true
+    },
     user: {
         type:   mongoose.Schema.Types.ObjectId,
         ref:    'User'   

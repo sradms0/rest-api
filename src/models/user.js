@@ -4,7 +4,6 @@ const mongoose  = require('mongoose');
 const bcrypt    = require('bcrypt');
 
 const UserSchema = new mongoose.Schema({
-     // add _id to allow new seeded users to have passwords hashed
     _id: {
         type: mongoose.Schema.ObjectId,
         auto: true
