@@ -62,3 +62,20 @@ exports.createCourse = (req, res, next) => {
         }
     });
 };
+exports.updateCourse = (req, res, next) => {
+    authenticate(req, res, next)
+    .then(user => {
+        // find document by id and update from fields
+        Course.findByIdAndUpdate(req.params.id, {$set: req.body})
+        .exec((error, course) => {
+            if (error) {
+                const err = new Error(error.message);
+                err.status = 400;
+                return next(err);
+            }
+            res.status(204);
+            res.end();
+        });
+    });
+};
+
