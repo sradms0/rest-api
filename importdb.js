@@ -12,29 +12,12 @@ const db = mongoose.connection;
 db.on('error', () => console.error('connection error:', err));
 
 
-const _import = () => {
-    [
-        'mongoimport --db course-api --collection courses --type=json --jsonArray --file seed-data/courses.json',
-        'mongoimport --db course-api --collection reviews --type=json --jsonArray --file seed-data/reviews.json'
-    ]
-    .forEach(i => {
-        exec(i, (err, stdout, stderr) => {
-            if (err) console.log(stderr);
-        });
-    });
-};
+User.create(userData, (error, users) => {
+    console.log('importing courses and reviews...');
+    exec('mongoimport --db course-api --collection courses --type=json --jsonArray --file seed-data/courses.json');
+    exec('mongoimport --db course-api --collection reviews --type=json --jsonArray --file seed-data/reviews.json');
 
-const createUsers = () => {
-    User.create(userData, (error, users) => {
-        if (error) console.log(error);
-        else console.log('created:', users)
-        db.close(() => console.log('db connection closed'));
-    });
-};
-
-const main = () => {
-    _import();
-    createUsers();
-}
-
-main();
+    if (error) console.log(error);
+    else console.log('created users:', users)
+    db.close(() => console.log('db connection closed'));
+});
