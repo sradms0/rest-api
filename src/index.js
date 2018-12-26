@@ -6,6 +6,8 @@ const jsonParser    = require('body-parser').json;
 const morgan        = require('morgan');
 const mongoose      = require('mongoose');
 const User          = require('./models/user');
+const Course        = require('./models/course');
+const Review        = require('./models/review');
 
 const app = express();
 
@@ -28,8 +30,10 @@ app.use(morgan('dev'));
 app.use(jsonParser());
 
 // TODO add additional routes here
-const userRoutes = require('./routes/userRoutes');
+const userRoutes    = require('./routes/userRoutes');
+const courseRoutes  = require('./routes/courseRoutes');
 userRoutes(app);
+courseRoutes(app);
 
 // send a friendly greeting for the root route
 app.get('/', (req, res) => {
