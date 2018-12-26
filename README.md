@@ -64,11 +64,11 @@ $ npm start
             - [X] When returning a single course for the <code>GET /api/courses/:courseId</code> route, use Mongoose population to load the related user and reviews documents.
             - [X] <code>POST /api/courses 201</code> - Creates a course, sets the Location header, and returns no content
             - [X] <code>PUT /api/courses/:courseId 204</code> - Updates a course and returns no content
-            - [ ] <code>POST /api/courses/:courseId/reviews 201</code> - Creates a review for the specified course ID, sets the Location header to the related course, and returns no content
+            - [X] <code>POST /api/courses/:courseId/reviews 201</code> - Creates a review for the specified course ID, sets the Location header to the related course, and returns no content
 
     * Update any <code>POST</code> and <code>PUT</code> routes to return Mongoose validation errors.
 
-        - [ ] Use the next function in each route to pass any Mongoose validation errors to Express’s global error handler
+        - [X] Use the next function in each route to pass any Mongoose validation errors to Express’s global error handler
         Send the Mongoose validation error with a400 status code to the user
 
     * Update the User model to store the user's password as a hashed value.
@@ -96,7 +96,7 @@ $ npm start
             - [X] ```POST /api/courses```
             - [X] ```PUT /api/courses/:courseId```
             - [X] ```GET /api/users```
-            - [ ] ```POST /api/courses/:courseId/reviews```
+            - [X] ```POST /api/courses/:courseId/reviews```
 
 * attempt at exceeding expectations
     * Review model
