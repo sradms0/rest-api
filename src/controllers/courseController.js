@@ -92,6 +92,11 @@ exports.createReview = (req, res, next) => {
     };
     authenticate(req, res, next)
     .then(user => {
+        if (user._id.toString() === req.body.user) {
+            const err = new Error('Unable to review own course.');
+            err.status = 400;
+            return next(err);
+        }
         // find course to review
         Course.findById(req.params.courseId)
         .exec((error, course) => {

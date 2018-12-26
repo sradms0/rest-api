@@ -100,7 +100,7 @@ $ npm start
 
 * attempt at exceeding expectations
     * Review model
-        - [ ] Validation added to prevent a user from reviewing their own course
+        - [X] Validation added to prevent a user from reviewing their own course
     * User routes
         * Tests have been written for the following user stories:
             - [ ] When I make a request to the <code>GET </code>route with the correct credentials, the corresponding user document is returned
