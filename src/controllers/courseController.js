@@ -67,7 +67,7 @@ exports.updateCourse = (req, res, next) => {
     authenticate(req, res, next)
     .then(user => {
         // find document by id and update from fields
-        Course.findByIdAndUpdate(req.params.id, {$set: req.body})
+        Course.findByIdAndUpdate(req.params.courseId, {$set: req.body})
         .exec((error, course) => {
             if (error) {
                 const err = new Error(error.message);
