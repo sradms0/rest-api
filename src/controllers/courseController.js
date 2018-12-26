@@ -21,7 +21,7 @@ exports.getCourses = (req, res, next) => {
     });
 };
 exports.getCourse = (req, res, next) => {
-    Course.findById(req.params.id)
+    Course.findById(req.params.courseId)
     .populate('user')
     .populate('reviews')
     .exec((error, course) => {
