@@ -2,16 +2,32 @@
 Eleventh Techdegree Project - Build a Course Rating API With Express
 
 Be sure to have MongoDB installed on your system.<br>
-Import exisiting data:
-```javascript
-node importdb.js
-```
+Use postman to test this api.<br>
+
 Install the dependencies and devDependencies and start the server.<br>
 In the root directory, run:
 ```sh
 $ npm install
+```
+Import exisiting data (this is required in order to run mocha tests):
+```sh
+$ node importdb.js 
+# ./importdb.js if running a posix system
+```
+Fire up the server:
+```sh
 $ npm start
 ```
+Running unit tests:
+<ol>
+    <li>Make sure server is not running (ctrl+c to stop)</li>
+    <li>
+    ```
+    $ npm test
+    ```
+    </li>
+</ol>
+
 
 * attempt at meeting expectations
     * Set up a database connection.
