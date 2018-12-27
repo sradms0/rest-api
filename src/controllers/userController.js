@@ -5,6 +5,8 @@ const auth      = require('basic-auth');
 
 const User = mongoose.model('User');
 
+// use this for just about every route in api
+// a user must be authenticated before just about any action is taken
 exports.authenticate = (req, res, next) => {
     return new Promise((resolve, reject) => {
         try {

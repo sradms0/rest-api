@@ -7,6 +7,7 @@ const User   = mongoose.model('User');
 const Course = mongoose.model('Course');
 const Review = mongoose.model('Review');
 
+// for possibility of when model validation errors occurr
 const modelErrorCheck = (error, next) => {
     if (error) {
         error.status = 400;
@@ -17,6 +18,7 @@ const modelErrorCheck = (error, next) => {
 exports.getCourses = (req, res, next) => {
     authenticate(req, res, next)
     .then(user => {
+        // display only _id and title
         Course.find(
             {user: user._id}, 
             {_id: true, title: true}
@@ -31,6 +33,7 @@ exports.getCourse = (req, res, next) => {
     authenticate(req, res, next)
     .then(user => {
         Course.findById(req.params.courseId)
+        // use deep population to to not show the user's password
         .populate({path:'user', select: 'fullName'})
         .populate({path:'reviews'})
         .exec((error, course) => {

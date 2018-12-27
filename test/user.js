@@ -7,6 +7,7 @@ const server    = require('../src/index')
 const should = chai.should();
 chai.use(chaiHttp);
 
+// test that successful authorization returns correct document
 describe('GET /api/users', () => {
     it('it should return the corresponding user document', done => {
         chai.request(server)
@@ -21,6 +22,7 @@ describe('GET /api/users', () => {
     });
 });
 
+// test that non-authorized course requesting returns 401 (along with error)
 describe('GET /api/courses/:courseId', () => {
     it('it should return a 401 status error', done => {
         chai.request(server)
