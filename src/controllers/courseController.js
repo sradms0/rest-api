@@ -31,8 +31,8 @@ exports.getCourse = (req, res, next) => {
     authenticate(req, res, next)
     .then(user => {
         Course.findById(req.params.courseId)
-        .populate('user')
-        .populate('reviews')
+        .populate({path:'user', select: 'fullName'})
+        .populate({path:'reviews'})
         .exec((error, course) => {
             if (error) {
                 const err = new Error(`Unable to find course by id: ${req.params.courseId}`);
