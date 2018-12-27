@@ -2,7 +2,6 @@
 Eleventh Techdegree Project - Build a Course Rating API With Express
 
 Be sure to have MongoDB installed on your system.<br>
-Use postman to test this api.<br>
 
 Install the dependencies and devDependencies and start the server.<br>
 In the root directory, run:
@@ -18,6 +17,16 @@ Fire up the server:
 ```sh
 $ npm start
 ```
+Use postman to test this api:<br>
+<ol>
+    <li>Once you have Postman installed and open, click on the “Import” button in the top left hand corner of the application’s window.</li>
+    <li>In the opened dialog, click the “Choose Files” button and browse to the folder that contains your project files.</li>
+    <li>Select the CourseAPI.postman_collection.json file.</li>
+    <li>You should now see the Course API collection in the left hand pane of the main Postman window.</li>
+    <li>Click on one of the available requests to load it into a tab. Click on the Request button to issue the request to the local server.</li>
+</ol>
+
+
 Running unit tests:
 <ol>
     <li>Make sure server is not running (ctrl+c to stop)</li>
