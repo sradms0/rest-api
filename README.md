@@ -22,7 +22,7 @@ Running unit tests:
 <ol>
     <li>Make sure server is not running (ctrl+c to stop)</li>
     <li>
-    ```
+    ```sh
     $ npm test
     ```
     </li>
