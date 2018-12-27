@@ -11,6 +11,7 @@ mongoose.connect('mongodb://localhost:27017/course-api', { useNewUrlParser: true
 const db = mongoose.connection;
 db.on('error', () => console.error('connection error:', err));
 
+db.dropDatabase();
 
 User.create(userData, (error, users) => {
     console.log('importing courses and reviews...');
