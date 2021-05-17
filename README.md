@@ -1,5 +1,5 @@
-# techdegree-project-11
-Eleventh Techdegree Project - Build a Course Rating API With Express
+# rest-api
+Build a Course Rating API With Express
 
 Be sure to have MongoDB installed on your system.<br>
 
